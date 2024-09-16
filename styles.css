@@ -1,0 +1,55 @@
+*{margin: 0;
+padding: 0;}
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+.section h1 , p{
+    font-family:  'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    
+}
+.section button {
+    height: 10vh;
+    width: 25vw;
+    background-color: #392a16;
+    border-radius: 10px;
+    font-size: 25px;
+    border: 0;
+    outline: 0;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.section button:hover {
+    background-color: #251b0e;
+    height: 11vh;
+    width: 26vw;
+}
+
+.section button:active {
+    background-color: #473319;
+}
+
+.btnH {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: auto;
+    gap: 8px;
+    opacity: 0;
+    max-height: 0px;
+    transition: all 0.5s ease-in-out;
+}
+
+.btnH-h {
+    /* display: flex; */
+    opacity: 1;
+    max-height: 50%;
+}
