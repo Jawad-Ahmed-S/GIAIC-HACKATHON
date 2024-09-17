@@ -52,6 +52,15 @@ body {
     background-color: #ebebeb;
     padding: 40px 0;
 }
+.one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #ebebeb;
+    padding: 40px 0;
+    height: max-content;
+}
 
 .content {
     width: 70vw;

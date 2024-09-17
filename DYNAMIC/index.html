@@ -1,52 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Resume Generator</title>
 </head>
+
 <body>
     <div class="nav">
         <ul>
             <li><a href="#PersonalInfo">Personal Information</a></li>
             <li><a href="#Education">Education</a></li>
             <li><a href="#Skills">Skills</a></li>
-            <li><a href="#WorkExperience   ">Work Experience</a></li>
+            <li><a href="#WorkExperience">Work Experience</a></li>
         </ul>
     </div>
     <div class="one">
-
-        <form >
-            <section>
+        <form>
+            <section id="PersonalInfo">
                 <h1>Personal Information</h1>
-                <input type="text"  placeholder="Full Name">
-                <input type="email"  placeholder="Email">
-                <input type="tel"  placeholder="Contact Number">
-                <input type="text"  placeholder="Location">
+                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Profession">
+                <input type="email" placeholder="Email">
+                <input type="tel" placeholder="Contact Number">
             </section>
-            <section>
+            <section id="Education">
                 <h1>Education</h1>
                 <input type="text" placeholder="Degree">
                 <input type="text" placeholder="Institution">
                 <input type="number" placeholder="Passing Year">
-                <button>Add Education</button>
             </section>
-            <section>
+            <section id="WorkExperience">
                 <h1>Work Experience</h1>
                 <input type="text" placeholder="Organization">
-                <input type="number" placeholder="duration">
+                <input type="number" placeholder="Duration">
                 <input type="text" placeholder="Description">
-                <button>Add Work</button>
             </section>
-            <section>
-            <h1>Skills</h1>
-            <input type="text" placeholder="Skills">
-            <button>Add Skills</button>
-            
-        </section>
-    </form>
-</div>
+            <section id="Skills">
+                <h1>Skills</h1>
+                <input type="text" placeholder="Skills">
+            </section>
+            <button id="generate">Generate Resume</button>
+        </form>
+    </div>
+
+    <section class="one-s">
+        <div class="content">
+            <section id="PersonalInfo">
+                <div class="image">
+                    <img src="profile.png" alt="Profile Picture">
+                </div>
+                <div class="personal">
+                    <h1 id="FullName"></h1>
+                    <p id="Profession"></p>
+                    <p id="Email"></p>
+                    <p id="Contact"></p>
+                </div>
+            </section>
+            <section id="Education">
+                <h2>Education</h2>
+                <div class="text">
+                    <p><b id="Degree"></b> <i id="Institution"></i> <span id="PassingYear"></span></p>
+                </div>
+            </section>
+            <section id="WorkExperience">
+                <h2>Work Experience</h2>
+                <div class="text">
+                    <p><b id="Organization"></b> <i id="Duration"></i></p>
+                    <p id="Description"></p>
+                </div>
+            </section>
+            <section id="Skills">
+                <h2>Skills</h2>
+                <div class="text">
+                    <p id="Skills"></p>
+                </div>
+            </section>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
+
 </html>
