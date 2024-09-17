@@ -130,23 +130,27 @@ button:active {
 }
 .content {
     width: 70vw;
+    display:none;
+
+    flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    opacity: 0;
+    /* opacity: 0; */
     /* Initially hidden */
     position: relative;
-    top: 0;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    /* transition: opacity 0.5s ease, visibility 0.5s ease; */
     height: 80vh;
     /* Adjust height based on content */
     /* Ensure content is scrollable if needed */
-    visibility: hidden;
+    /* visibility: hidden; */
     /* Initially hidden */
 }
 
 .content.visible {
+    display: flex;
+    flex-direction: column;
     opacity: 1;
     visibility: visible;
     position: relative;

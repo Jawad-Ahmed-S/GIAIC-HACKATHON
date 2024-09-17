@@ -26,9 +26,9 @@ function dataInput() {
     };
 }
 
-document.getElementById('generate')?.addEventListener('click', () => {
+document.getElementById('generate')?.addEventListener('click', (e) => {
     const data = dataInput();
-
+    e.preventDefault();
     (document.getElementById('FullName') as HTMLElement).textContent = data.fullName;
     (document.getElementById('Profession') as HTMLElement).textContent = data.profession;
     (document.getElementById('Email') as HTMLElement).textContent = data.email;
@@ -39,10 +39,48 @@ document.getElementById('generate')?.addEventListener('click', () => {
     (document.getElementById('Organization') as HTMLElement).textContent = data.organization;
     (document.getElementById('Duration') as HTMLElement).textContent = data.duration;
     (document.getElementById('Description') as HTMLElement).textContent = data.description;
-    (document.getElementById('Skills') as HTMLElement).textContent = data.skills;
+    (document.getElementById('skillsection') as HTMLElement).textContent = data.skills;
 
     const contentElement = document.querySelector('.content');
     if (contentElement) {
         contentElement.classList.add('visible');
     }
 });
+
+const sectionsContainer = document.getElementById('sectionsContainer') as HTMLElement;
+const addEducationButton = document.getElementById('addEducation') as HTMLElement;
+const addWorkExperienceButton = document.getElementById('addWorkExperience') as HTMLElement;
+
+// Function to add Education section
+function addEducationSection() {
+    const educationSection = document.createElement('section');
+    educationSection.classList.add('section');
+    
+    educationSection.innerHTML = `
+        <h1>Education</h1>
+        <input type="text" placeholder="Degree">
+        <input type="text" placeholder="Institution">
+        <input type="number" placeholder="Passing Year">
+    `;
+    
+    sectionsContainer.appendChild(educationSection);
+}
+
+// Function to add Work Experience section
+function addWorkExperienceSection() {
+    const workExperienceSection = document.createElement('section');
+    workExperienceSection.classList.add('section');
+    
+    workExperienceSection.innerHTML = `
+        <h1>Work Experience</h1>
+        <input type="text" placeholder="Organization">
+        <input type="number" placeholder="Duration">
+        <input type="text" placeholder="Description">
+    `;
+    
+    sectionsContainer.appendChild(workExperienceSection);
+}
+
+// Event listeners for adding sections
+addEducationButton.addEventListener('click', addEducationSection);
+addWorkExperienceButton.addEventListener('click', addWorkExperienceSection);

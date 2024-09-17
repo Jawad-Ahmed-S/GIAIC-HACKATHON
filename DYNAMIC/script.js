@@ -25,8 +25,9 @@ function dataInput() {
         description: descriptionInput ? descriptionInput.value : '',
     };
 }
-(_a = document.getElementById('generate')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
+(_a = document.getElementById('generate')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function (e) {
     var data = dataInput();
+    e.preventDefault();
     document.getElementById('FullName').textContent = data.fullName;
     document.getElementById('Profession').textContent = data.profession;
     document.getElementById('Email').textContent = data.email;
@@ -37,7 +38,7 @@ function dataInput() {
     document.getElementById('Organization').textContent = data.organization;
     document.getElementById('Duration').textContent = data.duration;
     document.getElementById('Description').textContent = data.description;
-    document.getElementById('Skills').textContent = data.skills;
+    document.getElementById('skillsection').textContent = data.skills;
     var contentElement = document.querySelector('.content');
     if (contentElement) {
         contentElement.classList.add('visible');
