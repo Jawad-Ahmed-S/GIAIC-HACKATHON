@@ -13,7 +13,7 @@ padding: 0;}
     font-family:  'Gill Sans MT', 'Trebuchet MS', sans-serif;
     
 }
-.section button {
+button {
     height: 10vh;
     width: 25vw;
     background-color: #392a16;
@@ -24,22 +24,22 @@ padding: 0;}
     color: white;
     transition: all 0.3s ease-in-out;
     text-decoration: none;
-    
+
     
 }
 
-.section button:hover {
+button:hover {
     background-color: #251b0e;
     height: 11vh;
     width: 26vw;
 }
 
-.section button:active {
+button:active {
     background-color: #473319;
 }
 
 .btnH {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -52,7 +52,7 @@ padding: 0;}
 }
 
 .btnH-h {
-    /* display: flex; */
+    display: flex;
     opacity: 1;
     max-height: 50%;
 }
