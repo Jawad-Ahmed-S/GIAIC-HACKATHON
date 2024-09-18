@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Resume Generator</title>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="#PersonalInfo">Personal Information</a></li>
+            <li><a href="#Education">Education</a></li>
+            <li><a href="#Skills">Skills</a></li>
+            <li><a href="#WorkExperience">Work Experience</a></li>
+        </ul>
+    </div>
+    <div class="one">
+        <form >
+            <section id="PersonalInfo">
+                <h1>Personal Information</h1>
+                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Profession">
+                <input type="email" placeholder="Email">
+                <input type="tel" placeholder="Contact Number">
+            </section>
+            <section id="Education">
+                <h1>Education</h1>
+                <input type="text" placeholder="Degree">
+                <input type="text" placeholder="Institution">
+                <input type="number" placeholder="Passing Year">
+                <!-- <button id="addEducation" >Add Education</button> -->
+            </section>
+            <section id="WorkExperience">
+                <h1>Work Experience</h1>
+                <input type="text" placeholder="Organization">
+                <input type="number" placeholder="Duration">
+                <input type="text" placeholder="Description">
+                <!-- <button id="addWorkExperience">Add Work Experience</button> -->
+            </section>
+            <section id="Skills">
+                <h1>Skills</h1>
+                <input type="text" placeholder="Skills">
+            </section>
+            <button id="generate" type="button">Generate Resume</button>
+        </form>
+    </div>
+
+    <section class="one-s">
+        <div class="content">
+            <section id="PersonalInfo">
+                <div class="image">
+                </div>
+                <div class="personal">
+                    <h1 id="FullName" contenteditable="true"></h1>
+                    <p id="Profession"contenteditable="true"></p>
+                    <p id="Email" contenteditable="true"></p>
+                    <p id="Contact" contenteditable="true"></p>
+                </div>
+            </section>
+            <sectionG id="Education">
+                <h2 contenteditable="true">Education</h2>
+                <div class="text">
+                    <p contenteditable="true"><b id="Degree"></b> <i id="Institution"></i> <span id="PassingYear"></span></p>
+                </div>
+            </sectionG>
+            <sectionG id="WorkExperience">
+                <h2 contenteditable="true">Work Experience</h2>
+                <div class="text">
+                    <p contenteditable="true"><b id="Organization"><b> - </b></b> <i id="Duration"></i></p>
+                    <p id="Description" contenteditable="true"></p>
+                </div>
+            </sectionG>
+            <sectionG id="Skills-s">
+                <h2 contenteditable="true">Skills</h2>
+                <div class="text">
+                    <p id="skillsection" contenteditable="true"></p>
+                </div>
+            </sectionG>
+        </div>
+    </section>
+    <section class="LinkGen">
+        <div class="linkSect">
+            <button id="ShowLink">Generate Link</button>
+            <div class="link"><a href="#" id="#link">https://jawad.com</a></div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>

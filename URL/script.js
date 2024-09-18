@@ -43,8 +43,17 @@ function dataInput() {
     if (contentElement) {
         contentElement.classList.add('visible');
     }
-    var hide = document.querySelector("form");
-    if (hide) {
-        hide.classList.replace('form', '.form-hide');
+    var formElement = document.querySelector('form');
+    if (formElement) {
+        formElement.style.display = "none";
     }
 });
+{
+    var ShowLink = document.querySelector("#ShowLink");
+    var linkSection_1 = document.querySelector('.LinkGen');
+    ShowLink === null || ShowLink === void 0 ? void 0 : ShowLink.addEventListener('click', function () {
+        if (linkSection_1) {
+            linkSection_1.style.display = "none";
+        }
+    });
+}

@@ -44,13 +44,23 @@ document.getElementById('generate')?.addEventListener('click', (e) => {
     const contentElement = document.querySelector('.content');
     if (contentElement) {
         contentElement.classList.add('visible');
+        
     }
-    
+    const formElement = document.querySelector('form');
+    if (formElement) {
+        formElement.style.display="none";    
+    }
+      const linkSection = document.querySelector('.LinkGen') as HTMLElement;
+    if (linkSection) {
+       linkSection.style.display="flex";    
+    }
 });
+{
 
+    const ShowLink= document.querySelector("#ShowLink")
+  
+   ShowLink?.addEventListener('click',()=>{
 
+   })
 
-// const hide = document.querySelector("form")
-//     if(hide){
-//         hide.classList.replace('form','.form-hide')
-//     }
+}
