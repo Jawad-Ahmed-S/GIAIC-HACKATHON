@@ -1,4 +1,55 @@
-var _a;
+var generateButton = document.getElementById('generate');
+function generateUserURL(name) {
+    var formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    return "https://www.giaic-hackathon-eight.vercel.app/user/".concat(formattedName);
+}
+generateButton.addEventListener('click', function () {
+    var data = dataInput();
+    // Update resume content
+    document.getElementById('FullName').textContent = data.fullName;
+    document.getElementById('Profession').textContent = data.profession;
+    document.getElementById('Email').textContent = data.email;
+    document.getElementById('Contact').textContent = data.contact;
+    document.getElementById('Degree').textContent = data.degree;
+    document.getElementById('Institution').textContent = data.institution;
+    document.getElementById('PassingYear').textContent = data.passingYear;
+    document.getElementById('Organization').textContent = data.organization;
+    document.getElementById('Duration').textContent = data.duration;
+    document.getElementById('Description').textContent = data.description;
+    document.getElementById('skillsection').textContent = data.skills;
+    // Show content and link generation section
+    var contentElement = document.querySelector('.content');
+    if (contentElement) {
+        contentElement.classList.add('visible');
+    }
+    var formElement = document.querySelector('form');
+    if (formElement) {
+        formElement.style.display = 'none';
+    }
+    var linkSection = document.querySelector('.LinkGen');
+    if (linkSection) {
+        linkSection.style.display = 'flex';
+    }
+    // Generate user URL
+    function generateUserURL(name) {
+        var formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+        return "https://www.giaic-hackathon-eight.vercel.app/user/".concat(formattedName);
+    }
+    var userURL = generateUserURL(data.fullName);
+    var linkElement = document.getElementById('link1');
+    if (linkElement) {
+        linkElement.href = userURL;
+        linkElement.textContent = userURL;
+    }
+});
+var showLinkButton = document.getElementById('ShowLink');
+showLinkButton.addEventListener('click', function () {
+    var link = document.querySelector('.link');
+    if (link) {
+        link.style.display = 'flex';
+    }
+});
+// Function to retrieve form data
 function dataInput() {
     var fullNameInput = document.querySelector('input[placeholder="Full Name"]');
     var professionInput = document.querySelector('input[placeholder="Profession"]');
@@ -24,36 +75,4 @@ function dataInput() {
         duration: durationInput ? durationInput.value : '',
         description: descriptionInput ? descriptionInput.value : '',
     };
-}
-(_a = document.getElementById('generate')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function (e) {
-    var data = dataInput();
-    e.preventDefault();
-    document.getElementById('FullName').textContent = data.fullName;
-    document.getElementById('Profession').textContent = data.profession;
-    document.getElementById('Email').textContent = data.email;
-    document.getElementById('Contact').textContent = data.contact;
-    document.getElementById('Degree').textContent = data.degree;
-    document.getElementById('Institution').textContent = data.institution;
-    document.getElementById('PassingYear').textContent = data.passingYear;
-    document.getElementById('Organization').textContent = data.organization;
-    document.getElementById('Duration').textContent = data.duration;
-    document.getElementById('Description').textContent = data.description;
-    document.getElementById('skillsection').textContent = data.skills;
-    var contentElement = document.querySelector('.content');
-    if (contentElement) {
-        contentElement.classList.add('visible');
-    }
-    var formElement = document.querySelector('form');
-    if (formElement) {
-        formElement.style.display = "none";
-    }
-});
-{
-    var ShowLink = document.querySelector("#ShowLink");
-    var linkSection_1 = document.querySelector('.LinkGen');
-    ShowLink === null || ShowLink === void 0 ? void 0 : ShowLink.addEventListener('click', function () {
-        if (linkSection_1) {
-            linkSection_1.style.display = "none";
-        }
-    });
 }
