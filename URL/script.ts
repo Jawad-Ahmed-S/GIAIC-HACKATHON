@@ -30,10 +30,7 @@ generateButton.addEventListener('click', () => {
     formElement.style.display = 'none';
   }
 
-  const linkSection = document.querySelector('.LinkGen') as HTMLElement;
-  if (linkSection) {
-    linkSection.style.display = 'flex';
-  }
+  const linkSection = (document.querySelector('.LinkGen') as HTMLElement).style.display = 'flex';
 
   // Generate user URL
   function generateUserURL(name: string): string {
@@ -49,7 +46,16 @@ generateButton.addEventListener('click', () => {
     linkElement.textContent = userURL;
   }
 });
+{
 
+    const print = document.getElementById('print') as HTMLButtonElement;
+    
+    print.addEventListener('click',()=>{
+        (document.querySelector(".LinkGen") as HTMLElement ).style.display="none";
+        (document.querySelector(".nav") as HTMLElement ).style.display="none";
+        window.print();
+    })
+}
 const showLinkButton = document.getElementById('ShowLink') as HTMLButtonElement;
 
 showLinkButton.addEventListener('click', () => {
@@ -58,6 +64,7 @@ showLinkButton.addEventListener('click', () => {
     link.style.display = 'flex';
   }
 });
+
 
 // Function to retrieve form data
 function dataInput(): {

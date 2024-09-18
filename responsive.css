@@ -1,0 +1,36 @@
+@media screen and (max-width: 500px) {
+    button {
+        width: 70vw;
+        font-size: 20px;
+    }
+
+    button:hover {
+        width: 72vw;
+        transition: all 0.3s ease;
+    }
+
+    button:active {
+        width: 72vw;
+        background-color: #473319;
+        transition: all 0.3s ease;
+        
+    }
+    h1{
+        font-size: 30px;
+        
+    }
+}
+@media screen and (max-width: 800px) {
+   
+    
+    .nav {
+        background: #000;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

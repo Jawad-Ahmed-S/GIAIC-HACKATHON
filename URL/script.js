@@ -26,10 +26,7 @@ generateButton.addEventListener('click', function () {
     if (formElement) {
         formElement.style.display = 'none';
     }
-    var linkSection = document.querySelector('.LinkGen');
-    if (linkSection) {
-        linkSection.style.display = 'flex';
-    }
+    var linkSection = document.querySelector('.LinkGen').style.display = 'flex';
     // Generate user URL
     function generateUserURL(name) {
         var formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
@@ -42,6 +39,14 @@ generateButton.addEventListener('click', function () {
         linkElement.textContent = userURL;
     }
 });
+{
+    var print_1 = document.getElementById('print');
+    print_1.addEventListener('click', function () {
+        document.querySelector(".LinkGen").style.display = "none";
+        document.querySelector(".nav").style.display = "none";
+        window.print();
+    });
+}
 var showLinkButton = document.getElementById('ShowLink');
 showLinkButton.addEventListener('click', function () {
     var link = document.querySelector('.link');

@@ -11,7 +11,7 @@ padding: 0;}
 }
 .section h1 , p{
     font-family:  'Gill Sans MT', 'Trebuchet MS', sans-serif;
-    
+    text-align: center;
 }
 button {
     height: 10vh;

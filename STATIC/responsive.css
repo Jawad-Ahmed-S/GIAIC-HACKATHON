@@ -1,0 +1,39 @@
+@media screen and (max-width: 500px) {
+    button {
+        width: 70vw;
+    }
+
+    button:hover {
+        width: 72vw;
+        transition: all 0.3s ease;
+    }
+
+    button:active {
+        width: 72vw;
+        transition: all 0.3s ease;
+        background-color: #473319;
+    }
+}
+
+h1 {
+    font-size: 30px;
+
+}
+
+
+@media screen and (max-width: 800px) {
+    body {
+        border: 10px solid rebeccapurple;
+    }
+
+    .nav {
+        background: #000;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
