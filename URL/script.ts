@@ -35,7 +35,7 @@ const contentElement = document.querySelector('.content');
   // Generate URL
   function generateUserURL(name: string): string {
     const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-    return `https://giaic-hackathon-jawads-projects-ce7a490a.vercel.app/?user=${encodeURIComponent(formattedName)}`;
+    return `https://giaic-hackathon-jawads-projects-ce7a490a.vercel.app/URL/?user=${encodeURIComponent(formattedName)}`;
   }
 
 

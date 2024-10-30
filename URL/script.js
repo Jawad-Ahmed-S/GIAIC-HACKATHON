@@ -31,7 +31,7 @@
         // Generate URL
         function generateUserURL(name) {
             var formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-            return "https://giaic-hackathon-jawads-projects-ce7a490a.vercel.app/?user=".concat(encodeURIComponent(formattedName));
+            return "https://giaic-hackathon-jawads-projects-ce7a490a.vercel.app/URL/?user=".concat(encodeURIComponent(formattedName));
         }
         var userURL = generateUserURL(data.fullName);
         console.log(userURL);
