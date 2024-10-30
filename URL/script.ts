@@ -1,23 +1,24 @@
-const generateButton = document.getElementById('generate') as HTMLButtonElement;
-function generateUserURL(name: string): string {
-  const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-  return `https://www.giaic-hackathon-eight.vercel.app/user/${formattedName}`;
-}
+{const generateButton = document.getElementById('generate') as HTMLButtonElement;
+// function generateUserURL(name: string): string {
+//   const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+//   return `https://www.giaic-hackathon-eight.vercel.app/user/${formattedName}`;
+// }
+
 generateButton.addEventListener('click', () => {
-  const data = dataInput();
+  const data = ResumedataInput();
 
   // Update resume content
-  (document.getElementById('FullName') as HTMLElement).textContent = data.fullName;
-  (document.getElementById('Profession') as HTMLElement).textContent = data.profession;
-  (document.getElementById('Email') as HTMLElement).textContent = data.email;
-  (document.getElementById('Contact') as HTMLElement).textContent = data.contact;
-  (document.getElementById('Degree') as HTMLElement).textContent = data.degree;
-  (document.getElementById('Institution') as HTMLElement).textContent = data.institution;
-  (document.getElementById('PassingYear') as HTMLElement).textContent = data.passingYear;
-  (document.getElementById('Organization') as HTMLElement).textContent = data.organization;
-  (document.getElementById('Duration') as HTMLElement).textContent = data.duration;
-  (document.getElementById('Description') as HTMLElement).textContent = data.description;
-  (document.getElementById('skillsection') as HTMLElement).textContent = data.skills;
+  (document.getElementById('FullName') as HTMLElement).textContent = userData.fullName;
+  (document.getElementById('Profession') as HTMLElement).textContent = userData.profession;
+  (document.getElementById('Email') as HTMLElement).textContent = userData.email;
+  (document.getElementById('Contact') as HTMLElement).textContent = userData.contact;
+  (document.getElementById('Degree') as HTMLElement).textContent = userData.degree;
+  (document.getElementById('Institution') as HTMLElement).textContent = userData.institution;
+  (document.getElementById('PassingYear') as HTMLElement).textContent = userData.passingYear;
+  (document.getElementById('Organization') as HTMLElement).textContent = userData.organization;
+  (document.getElementById('Duration') as HTMLElement).textContent = userData.duration;
+  (document.getElementById('Description') as HTMLElement).textContent = userData.description;
+  (document.getElementById('skillsection') as HTMLElement).textContent = userData.skills;
 
   // Show content and link generation section
   const contentElement = document.querySelector('.content');
@@ -32,19 +33,24 @@ generateButton.addEventListener('click', () => {
 
   const linkSection = (document.querySelector('.LinkGen') as HTMLElement).style.display = 'flex';
 
-  // Generate user URL
+  // Generate URL
   function generateUserURL(name: string): string {
     const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-    return `https://www.giaic-hackathon-eight.vercel.app/user/${formattedName}`;
+    return `http://www.giaic-hackathon-eight.vercel.app/URL/?user=${encodeURIComponent(formattedName)}`;
   }
 
+  console.log(data.fullName ,  "Data.fullname") ;
+
   const userURL = generateUserURL(data.fullName);
+  console.log(userURL);
+  
 
   const linkElement = document.getElementById('link1') as HTMLAnchorElement;
   if (linkElement) {
     linkElement.href = userURL;
     linkElement.textContent = userURL;
   }
+
 });
 {
 
@@ -65,9 +71,24 @@ showLinkButton.addEventListener('click', () => {
   }
 });
 
+ const input = ResumedataInput();
+const userData = {
+    fullName: input.fullName, 
+    profession: input.profession,
+    email: input.email,
+    contact: input.contact,
+    degree: input.degree,
+    institution: input.institution,
+    passingYear: input.passingYear,
+    organization: input.organization,
+    duration: input.duration,
+    description: input.description,
+    skills: input.skills
+};
+console.log(userData);
 
-// Function to retrieve form data
-function dataInput(): {
+
+function ResumedataInput(): {
   fullName: string;
   profession: string;
   email: string;
@@ -91,7 +112,7 @@ function dataInput(): {
   const durationInput = document.querySelector('input[placeholder="Duration"]') as HTMLInputElement;
   const descriptionInput = document.querySelector('input[placeholder="Description"]') as HTMLInputElement;
   const skillsInput = document.querySelector('input[placeholder="Skills"]') as HTMLInputElement;
-
+  console.log(fullNameInput.value, "ResumeDataInput");
   return {
     fullName: fullNameInput ? fullNameInput.value : '',
     profession: professionInput ? professionInput.value : '',
@@ -105,4 +126,5 @@ function dataInput(): {
     duration: durationInput ? durationInput.value : '',
     description: descriptionInput ? descriptionInput.value : '',
   };
+}
 }

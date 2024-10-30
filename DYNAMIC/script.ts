@@ -26,7 +26,7 @@ function dataInput() {
     };
 }
 
-document.getElementById('generate')?.addEventListener('click', (e) => {
+document.getElementById('generate')?.addEventListener('submit', (e) => {
     const data = dataInput();
     e.preventDefault();
     (document.getElementById('FullName') as HTMLElement).textContent = data.fullName;
@@ -49,8 +49,3 @@ document.getElementById('generate')?.addEventListener('click', (e) => {
 });
 
 
-
-// const hide = document.querySelector("form")
-//     if(hide){
-//         hide.classList.replace('form','.form-hide')
-//     }
