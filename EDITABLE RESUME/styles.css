@@ -39,19 +39,14 @@ section h1 {
     width: max-content;
     transition: all 0.3s ease-in;
 }
-
-.nav ul li:hover {
-    background-color: #7c745c;
-    font-weight: 400;
+.nav ul li a:hover {
     transition: all 0.3s ease-in;
-    padding-right: 5px;
-    padding-left: 5px;
+    color: yellow;
 }
 
-.nav ul li:active {
-    background-color: #634133;
+.nav ul li a:active {
+    color: yellow;
 }
-
 .one {
     display: flex;
     justify-content: center;
@@ -88,9 +83,40 @@ form section {
     justify-content: center;
     align-items: center;
     width: 80%;
+}
+#eduFields {
+    width: 100%;
     gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.eduEntry {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#workFields {
+    width: 100%;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.workEntry {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 section input {
     padding: 10px;
     width: 100%;

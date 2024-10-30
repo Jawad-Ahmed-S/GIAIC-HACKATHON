@@ -27,19 +27,29 @@
                 <input type="email" placeholder="Email" required>
                 <input type="tel" placeholder="Contact Number" required>
             </section>
-            <section id="Education">
+            <section class="education">
+
                 <h1>Education</h1>
-                <input type="text" placeholder="Degree" required>
-                <input type="text" placeholder="Institution" required>
-                <input type="number" placeholder="Passing Year" required>
-                <button>Add Education</button>
+                <div id="eduFields">
+                    <div class="eduEntry">
+                        
+                        <input type="text" placeholder="Degree" required>
+                        <input type="text" placeholder="Institution" required>
+                        <input type="number" placeholder="Passing Year" required>
+                    </div>
+                </div>
+                <button type="button" id="AddEducation">Add Education</button>
             </section>
             <section id="WorkExperience">
                 <h1>Work Experience</h1>
-                <input type="text" placeholder="Organization" required>
-                <input type="number" placeholder="Duration" required>
-                <input type="text" placeholder="Description" required>
-            </section>
+                <div id="workFields">
+                    <div class="workEntry">
+                        <input type="text" placeholder="Organization" required>
+                        <input type="number" placeholder="Duration" required>
+                        <input type="text" placeholder="Description" required>
+                    </div>
+                </div>
+                <button type="button" id="AddWork">Add Experience</button></section>
             <section id="Skills">
                 <h1>Skills</h1>
                 <input type="text" placeholder="Skills" required>
@@ -47,7 +57,7 @@
             <button id="generate" type="button">Generate Resume</button>
         </form>
     </div>
-
+ 
     <section class="one-s">
         <div class="content">
             <section id="PersonalInfo">
@@ -60,15 +70,15 @@
                     <p id="Contact" contenteditable="true"></p>
                 </div>
             </section>
-            <sectionG id="Education">
+            <sectionG id="Education" >
                 <h2 contenteditable="true">Education</h2>
-                <div class="text">
+                <div class="text"  id="eduDisplay">
                     <p contenteditable="true"><b id="Degree"></b> <i id="Institution"></i> <span id="PassingYear"></span></p>
                 </div>
             </sectionG>
             <sectionG id="WorkExperience">
                 <h2 contenteditable="true">Work Experience</h2>
-                <div class="text">
+                <div class="text" id="WorkDisplay">
                     <p contenteditable="true"><b id="Organization"><b> - </b></b> <i id="Duration"></i></p>
                     <p id="Description" contenteditable="true"></p>
                 </div>

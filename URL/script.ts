@@ -1,9 +1,4 @@
 {const generateButton = document.getElementById('generate') as HTMLButtonElement;
-// function generateUserURL(name: string): string {
-//   const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-//   return `https://www.giaic-hackathon-eight.vercel.app/user/${formattedName}`;
-// }
-
 generateButton.addEventListener('click', () => {
   const data = ResumedataInput();
 
@@ -21,10 +16,14 @@ generateButton.addEventListener('click', () => {
   (document.getElementById('skillsection') as HTMLElement).textContent = userData.skills;
 
   // Show content and link generation section
-  const contentElement = document.querySelector('.content');
-  if (contentElement) {
-    contentElement.classList.add('visible');
-  }
+const contentElement = document.querySelector('.content');
+    const extrabody = document.querySelector('.one-s') as HTMLElement;
+    if (contentElement) {
+        extrabody.style.height  = '100vh';
+        contentElement.classList.add('visible'); 
+    }
+      populateEduData('#eduDisplay', '.eduEntry');
+      populateWorkData('#WorkDisplay', '.workEntry');
 
   const formElement = document.querySelector('form');
   if (formElement) {
@@ -36,10 +35,9 @@ generateButton.addEventListener('click', () => {
   // Generate URL
   function generateUserURL(name: string): string {
     const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-    return `http://www.giaic-hackathon-eight.vercel.app/URL/?user=${encodeURIComponent(formattedName)}`;
+    return `https://giaic-hackathon-jawads-projects-ce7a490a.vercel.app/?user=${encodeURIComponent(formattedName)}`;
   }
 
-  console.log(data.fullName ,  "Data.fullname") ;
 
   const userURL = generateUserURL(data.fullName);
   console.log(userURL);
@@ -126,5 +124,79 @@ function ResumedataInput(): {
     duration: durationInput ? durationInput.value : '',
     description: descriptionInput ? descriptionInput.value : '',
   };
+}
+}
+{
+const addEducationBtn = document.getElementById('AddEducation') as HTMLButtonElement;
+addEducationBtn.addEventListener('click', () => {
+  const eduFields = document.getElementById('eduFields') as HTMLDivElement;
+  const newEntry = document.createElement('div');
+  newEntry.classList.add('eduEntry');
+  newEntry.innerHTML = `
+    <input type="text" placeholder="Degree" required>
+    <input type="text" placeholder="Institution" required>
+    <input type="number" placeholder="Passing Year" required>
+  `;
+  eduFields.appendChild(newEntry);
+
+});
+
+
+
+const addWorkBtn = document.getElementById('AddWork') as HTMLButtonElement;
+addWorkBtn.addEventListener('click', () => {
+  const workFields = document.getElementById('workFields') as HTMLDivElement;
+  const newEntry = document.createElement('div');
+  newEntry.classList.add('workEntry');
+  newEntry.innerHTML = `
+      <input type="text" placeholder="Organization" required>
+      <input type="number" placeholder="Duration" required>
+      <input type="text" placeholder="Description" required>
+  `;
+  workFields.appendChild(newEntry);
+
+});
+/* ----------------------------------------------------------------- */
+
+
+function populateWorkData(targetSectionId, sourceEntryClass) {
+    const targetSection = document.querySelector(targetSectionId) as HTMLElement;
+    const workEntries = document.querySelectorAll(sourceEntryClass) as NodeListOf<HTMLDivElement>;
+  if (targetSection) {
+        targetSection.innerHTML = ''; 
+    }
+
+    workEntries.forEach(entry => {
+        const organization = entry.querySelector('input[placeholder="Organization"]') as HTMLInputElement;
+        const duration = entry.querySelector('input[placeholder="Duration"]') as HTMLInputElement;
+        const description = entry.querySelector('input[placeholder="Description"]') as HTMLInputElement;
+
+        if (targetSection) {
+            const newParagraph = document.createElement('p');
+            newParagraph.innerHTML = `<b id="Organization">${organization.value}</b> - <i id="Duration">${duration.value}</i><br><span id="Description">${description.value}</span>`;
+            targetSection.appendChild(newParagraph);
+        }
+    });
+}
+
+
+function populateEduData(targetSectionId, sourceEntryClass) {
+    const targetSection = document.querySelector(targetSectionId) as HTMLElement;
+    const eduEntries = document.querySelectorAll(sourceEntryClass) as NodeListOf<HTMLDivElement>;
+  if (targetSection) {
+        targetSection.innerHTML = ''; 
+    }
+
+    eduEntries.forEach(entry => {
+        const Degree = entry.querySelector('input[placeholder="Degree"]') as HTMLInputElement;
+        const Institution = entry.querySelector('input[placeholder="Institution"]') as HTMLInputElement;
+        const PassingYear = entry.querySelector('input[placeholder="Passing Year"]') as HTMLInputElement;
+
+        if (targetSection) {
+            const newParagraph = document.createElement('p');
+            newParagraph.innerHTML = `<b id="Degree">${Degree.value}</b> <i id="Institution">${Institution.value}</i> <span id="PassingYear">${PassingYear.value}`;
+            targetSection.appendChild(newParagraph);
+        }
+    });
 }
 }

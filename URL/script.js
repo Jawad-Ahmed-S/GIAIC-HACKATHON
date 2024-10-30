@@ -1,9 +1,5 @@
 {
     var generateButton = document.getElementById('generate');
-    // function generateUserURL(name: string): string {
-    //   const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-    //   return `https://www.giaic-hackathon-eight.vercel.app/user/${formattedName}`;
-    // }
     generateButton.addEventListener('click', function () {
         var data = ResumedataInput();
         // Update resume content
@@ -20,9 +16,13 @@
         document.getElementById('skillsection').textContent = userData_1.skills;
         // Show content and link generation section
         var contentElement = document.querySelector('.content');
+        var extrabody = document.querySelector('.one-s');
         if (contentElement) {
+            extrabody.style.height = '100vh';
             contentElement.classList.add('visible');
         }
+        populateEduData('#eduDisplay', '.eduEntry');
+        populateWorkData('#WorkDisplay', '.workEntry');
         var formElement = document.querySelector('form');
         if (formElement) {
             formElement.style.display = 'none';
@@ -31,9 +31,8 @@
         // Generate URL
         function generateUserURL(name) {
             var formattedName = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-            return "http://www.giaic-hackathon-eight.vercel.app/URL/?user=".concat(encodeURIComponent(formattedName));
+            return "https://giaic-hackathon-jawads-projects-ce7a490a.vercel.app/?user=".concat(encodeURIComponent(formattedName));
         }
-        console.log(data.fullName, "Data.fullname");
         var userURL = generateUserURL(data.fullName);
         console.log(userURL);
         var linkElement = document.getElementById('link1');
@@ -98,5 +97,58 @@
             duration: durationInput ? durationInput.value : '',
             description: descriptionInput ? descriptionInput.value : '',
         };
+    }
+}
+{
+    var addEducationBtn = document.getElementById('AddEducation');
+    addEducationBtn.addEventListener('click', function () {
+        var eduFields = document.getElementById('eduFields');
+        var newEntry = document.createElement('div');
+        newEntry.classList.add('eduEntry');
+        newEntry.innerHTML = "\n    <input type=\"text\" placeholder=\"Degree\" required>\n    <input type=\"text\" placeholder=\"Institution\" required>\n    <input type=\"number\" placeholder=\"Passing Year\" required>\n  ";
+        eduFields.appendChild(newEntry);
+    });
+    var addWorkBtn = document.getElementById('AddWork');
+    addWorkBtn.addEventListener('click', function () {
+        var workFields = document.getElementById('workFields');
+        var newEntry = document.createElement('div');
+        newEntry.classList.add('workEntry');
+        newEntry.innerHTML = "\n      <input type=\"text\" placeholder=\"Organization\" required>\n      <input type=\"number\" placeholder=\"Duration\" required>\n      <input type=\"text\" placeholder=\"Description\" required>\n  ";
+        workFields.appendChild(newEntry);
+    });
+    /* ----------------------------------------------------------------- */
+    function populateWorkData(targetSectionId, sourceEntryClass) {
+        var targetSection = document.querySelector(targetSectionId);
+        var workEntries = document.querySelectorAll(sourceEntryClass);
+        if (targetSection) {
+            targetSection.innerHTML = '';
+        }
+        workEntries.forEach(function (entry) {
+            var organization = entry.querySelector('input[placeholder="Organization"]');
+            var duration = entry.querySelector('input[placeholder="Duration"]');
+            var description = entry.querySelector('input[placeholder="Description"]');
+            if (targetSection) {
+                var newParagraph = document.createElement('p');
+                newParagraph.innerHTML = "<b id=\"Organization\">".concat(organization.value, "</b> - <i id=\"Duration\">").concat(duration.value, "</i><br><span id=\"Description\">").concat(description.value, "</span>");
+                targetSection.appendChild(newParagraph);
+            }
+        });
+    }
+    function populateEduData(targetSectionId, sourceEntryClass) {
+        var targetSection = document.querySelector(targetSectionId);
+        var eduEntries = document.querySelectorAll(sourceEntryClass);
+        if (targetSection) {
+            targetSection.innerHTML = '';
+        }
+        eduEntries.forEach(function (entry) {
+            var Degree = entry.querySelector('input[placeholder="Degree"]');
+            var Institution = entry.querySelector('input[placeholder="Institution"]');
+            var PassingYear = entry.querySelector('input[placeholder="Passing Year"]');
+            if (targetSection) {
+                var newParagraph = document.createElement('p');
+                newParagraph.innerHTML = "<b id=\"Degree\">".concat(Degree.value, "</b> <i id=\"Institution\">").concat(Institution.value, "</i> <span id=\"PassingYear\">").concat(PassingYear.value);
+                targetSection.appendChild(newParagraph);
+            }
+        });
     }
 }

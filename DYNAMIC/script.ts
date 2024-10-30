@@ -25,8 +25,8 @@ function dataInput() {
         description: descriptionInput ? descriptionInput.value : '',
     };
 }
-
-document.getElementById('generate')?.addEventListener('submit', (e) => {
+ 
+document.getElementById('generate')?.addEventListener('click', (e) => {
     const data = dataInput();
     e.preventDefault();
     (document.getElementById('FullName') as HTMLElement).textContent = data.fullName;
@@ -41,11 +41,89 @@ document.getElementById('generate')?.addEventListener('submit', (e) => {
     (document.getElementById('Description') as HTMLElement).textContent = data.description;
     (document.getElementById('skillsection') as HTMLElement).textContent = data.skills;
 
+
     const contentElement = document.querySelector('.content');
+    /* ----------------------------------------------------------------- */
+    const extrabody = document.querySelector('.one-s') as HTMLElement;
     if (contentElement) {
-        contentElement.classList.add('visible');
+        extrabody.style.height  = '100vh';
+        /* ----------------------------------------------------------------- */
+        contentElement.classList.add('visible'); 
     }
+      populateEduData('#eduDisplay', '.eduEntry');
+      populateWorkData('#WorkDisplay', '.workEntry');
     
+});
+/* ----------------------------------------------------------------- */
+const addEducationBtn = document.getElementById('AddEducation') as HTMLButtonElement;
+addEducationBtn.addEventListener('click', () => {
+  const eduFields = document.getElementById('eduFields') as HTMLDivElement;
+  const newEntry = document.createElement('div');
+  newEntry.classList.add('eduEntry');
+  newEntry.innerHTML = `
+    <input type="text" placeholder="Degree" required>
+    <input type="text" placeholder="Institution" required>
+    <input type="number" placeholder="Passing Year" required>
+  `;
+  eduFields.appendChild(newEntry);
+
 });
 
 
+
+const addWorkBtn = document.getElementById('AddWork') as HTMLButtonElement;
+addWorkBtn.addEventListener('click', () => {
+  const workFields = document.getElementById('workFields') as HTMLDivElement;
+  const newEntry = document.createElement('div');
+  newEntry.classList.add('workEntry');
+  newEntry.innerHTML = `
+      <input type="text" placeholder="Organization" required>
+      <input type="number" placeholder="Duration" required>
+      <input type="text" placeholder="Description" required>
+  `;
+  workFields.appendChild(newEntry);
+
+});
+/* ----------------------------------------------------------------- */
+
+
+function populateWorkData(targetSectionId, sourceEntryClass) {
+    const targetSection = document.querySelector(targetSectionId) as HTMLElement;
+    const workEntries = document.querySelectorAll(sourceEntryClass) as NodeListOf<HTMLDivElement>;
+  if (targetSection) {
+        targetSection.innerHTML = ''; 
+    }
+
+    workEntries.forEach(entry => {
+        const organization = entry.querySelector('input[placeholder="Organization"]') as HTMLInputElement;
+        const duration = entry.querySelector('input[placeholder="Duration"]') as HTMLInputElement;
+        const description = entry.querySelector('input[placeholder="Description"]') as HTMLInputElement;
+
+        if (targetSection) {
+            const newParagraph = document.createElement('p');
+            newParagraph.innerHTML = `<b id="Organization">${organization.value}</b> - <i id="Duration">${duration.value}</i><br><span id="Description">${description.value}</span>`;
+            targetSection.appendChild(newParagraph);
+        }
+    });
+}
+
+
+function populateEduData(targetSectionId, sourceEntryClass) {
+    const targetSection = document.querySelector(targetSectionId) as HTMLElement;
+    const eduEntries = document.querySelectorAll(sourceEntryClass) as NodeListOf<HTMLDivElement>;
+  if (targetSection) {
+        targetSection.innerHTML = ''; 
+    }
+
+    eduEntries.forEach(entry => {
+        const Degree = entry.querySelector('input[placeholder="Degree"]') as HTMLInputElement;
+        const Institution = entry.querySelector('input[placeholder="Institution"]') as HTMLInputElement;
+        const PassingYear = entry.querySelector('input[placeholder="Passing Year"]') as HTMLInputElement;
+
+        if (targetSection) {
+            const newParagraph = document.createElement('p');
+            newParagraph.innerHTML = `<b id="Degree">${Degree.value}</b> <i id="Institution">${Institution.value}</i> <span id="PassingYear">${PassingYear.value}`;
+            targetSection.appendChild(newParagraph);
+        }
+    });
+}

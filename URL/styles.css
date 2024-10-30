@@ -39,19 +39,14 @@ section h1 {
     width: max-content;
     transition: all 0.3s ease-in;
 }
-
-.nav ul li:hover {
-    background-color: #7c745c;
-    font-weight: 400;
+.nav ul li a:hover {
     transition: all 0.3s ease-in;
-    padding-right: 5px;
-    padding-left: 5px;
+    color: yellow;
 }
 
-.nav ul li:active {
-    background-color: #634133;
+.nav ul li a:active {
+    color: yellow;
 }
-
 .one {
     display: flex;
     justify-content: center;
@@ -59,6 +54,7 @@ section h1 {
     width: 100vw;
     background-color: #ebebeb;
     padding: 40px 0;
+    margin-bottom: 0;
     height: max-content;
 }
 
@@ -87,7 +83,40 @@ form section {
     width: 80%;
     gap: 5px;
 }
+#eduFields {
+    width: 100%;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.eduEntry {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#workFields {
+    width: 100%;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.workEntry {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 section input {
     padding: 10px;
     width: 100%;
@@ -217,6 +246,7 @@ p {
     width: 100%;
     justify-content: center;
     align-items: center;
+    height: max-content;
     background:#ebebeb;
 }
 .linkSect{
@@ -226,7 +256,6 @@ p {
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 40px;
-        border: 1px solid red;
         height: auto;
 }
 .link{
